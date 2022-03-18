@@ -59,19 +59,29 @@ class _HomeViewState extends State<HomeView> {
           backgroundColor: Colors.transparent,
         ),
         drawer: Drawer(
-          child: ListView.builder(
-              itemCount: countries.length,
-              itemBuilder: (context, i) {
-                return ListTile(
-                  title: Text(countries[i]),
-                  onTap: () {
-                    country = countries[i];
-                    print(country);
-                    getDataFromApi();
-                    Navigator.pop(context);
-                  },
-                );
-              }),
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Theme.of(context).primaryColor, Theme.of(context).primaryColorLight]),
+            ),
+            child: ListView.builder(
+                itemCount: countries.length,
+                itemBuilder: (context, i) {
+                  return ListTile(
+                    title: Text(
+                      countries[i],
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () {
+                      country = countries[i];
+                      print(country);
+                      getDataFromApi();
+                      Navigator.pop(context);
+                    },
+                  );
+                }),
+          ),
         ),
         body: Container(
           alignment: Alignment.topCenter,

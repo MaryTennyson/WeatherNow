@@ -2,10 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class GetApi {
+  dynamic MyToken = '';
   String baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
-  String defaultUrl = '&appid=f4c6c4dbdde1dc6c142ceceeff354ab8&units=metric';
+  String partofUrl = '&appid=';
+  String defaultUrl = '&units=metric';
   Future<dynamic> getData(String country) async {
-    Uri url = Uri.parse(baseUrl + country + defaultUrl);
+    Uri url = Uri.parse(baseUrl + country + partofUrl + MyToken + defaultUrl);
     http.Response response = await http.get(url);
     return jsonDecode(response.body);
   }

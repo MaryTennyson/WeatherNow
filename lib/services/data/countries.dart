@@ -12,7 +12,6 @@ List<String> countries = [
   "Belarus",
   "Belgium",
   "Bermuda",
-  "Bhutan",
   "Brazil",
   "Bulgaria",
   "Cambodia",
